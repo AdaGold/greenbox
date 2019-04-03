@@ -75,28 +75,47 @@ xdescribe 'GreenBox::MovieReserver' do
     end
   end
 
-  xdescribe 'rent_movie' do
+  #PRACTICE TEST WRITING W/ RENT MOVIE 
+  describe 'rent_movie' do
     it 'returns a rental for a successfully rented movie' do
-      # TODO Your Code goes here
-
-
+      movie_reserver  = GreenBox::MovieReserver.new
+      title = 'Crazy Rich Asians'
+      date_range = GreenBox::DateRange.new(Time.parse('2018-08-08'),Time.parse('2018-08-09'))
+      customer_name = 'Ada Lovelace'
+      rental = movie_reserver.rent_movie(title, date_range, customer_name)
+      expect(rental.movie.title).must_equal 'Crazy Rich Asians'
     end
 
     it 'can rent multiple movies with the same title' do
-      # TODO Your Code goes here
-
-
+      movie_reserver  = GreenBox::MovieReserver.new
+      title = 'Crazy Rich Asians'
+      date_range_a = GreenBox::DateRange.new(Time.parse('2018-08-09'),Time.parse('2018-08-10'))
+      customer_name_a = 'Ada Lovelace'
+      date_range_b = GreenBox::DateRange.new(Time.parse('2018-08-08'),Time.parse('2018-08-09'))
+      customer_name_b = 'Walden Roo'
+      rental_a = movie_reserver.rent_movie(title, date_range_a, customer_name_a)
+      rental_b = movie_reserver.rent_movie(title, date_range_b, customer_name_b)
+      expect(rental_a).wont_be_nil
+      expect(rental_b).wont_be_nil
+      expect(rental_a).wont_equal(rental_b)
     end
 
-    xit 'cannot rent a movie already rented' do
-      # TODO Your Code goes here
+    it 'cannot rent a movie already rented' do
+        movie_reserver  = GreenBox::MovieReserver.new
+        title = 'Crazy Rich Asians'
+        date_range = GreenBox::DateRange.new(Time.parse('2018-08-08'),Time.parse('2018-08-09'))
+        customer_name = 'Ada Lovelace'
+        rental_a = movie_reserver.rent_movie(title, date_range, customer_name)
+        rental_b = movie_reserver.rent_movie(title, date_range, customer_name)
+        expect(rental_a).must_equal(rental_b)
+      end
 
-
-    end
-
-    xit 'raises an error if a movie is requested that does not appear in the list' do
-      # TODO Your Code goes here
-
+  it 'raises an error if a movie is requested that does not appear in the list' do
+    movie_reserver  = GreenBox::MovieReserver.new
+    title = 'Blackklansman'
+    date_range = GreenBox::DateRange.new(Time.parse('2018-08-08'),Time.parse('2018-08-09'))
+    customer_name = 'Ada Lovelace'
+    expect movie_reserver.rent_movie(title, date_range, customer_name).must_raise StandardError
     end
   end
 end
