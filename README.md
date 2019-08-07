@@ -26,12 +26,12 @@ You will be expected to:
 *  Ask questions when you need clarification
 
 ## Setup
-We will use the same project structure we used for the previous project. Classes should be in files in the lib folder, and tests are in files in the specs folder. This project utilizes a `spec_helper` file.  **You will need to add `require_relative` statements in `spec_helper.rb` to enable the project to use your classes.  You will run tests by executing the rake command, as configured in a Rakefile.
+We will use the same project structure we used for the previous project. Classes should be in files in the lib folder, and tests are in files in the `test` folder. This project utilizes a `test_helper.rb` file.  **You will need to add `require_relative` statements in `test_helper.rb` to enable the project to use your classes.  You will run tests by executing the rake command, as configured in a Rakefile.
 
 1.   Fork this repository in GitHub
 1.   Clone the repository to your computer
 1.   Create/copy a rakefile to run your tests
-1.   Unskip the first test for the `Movie` class (`movie_spec.rb`) and run the test (RED)
+1.   Unskip the first test for the `Movie` class (`movie_test.rb`) and run the test (RED)
 1.   Create the class for the object tested in the step above (GREEN)
 1.   Use git add, commit and push commands to push your initial code to GitHub
 
@@ -61,7 +61,7 @@ In this wave you will create a `Movie` class.  A movie represents a film in our 
 
 A movie will have one additional method, `starring(actor_name)`.  This method will return true if the given actor does appear in the movie.
 
-You have a set of spec files provided for the `movie` class.  Write code to ensure that the class passes the given tests.
+You have a set of test files provided for the `movie` class.  Write code to ensure that the class passes the given tests.
 
 ## Wave 2: DateRange & Rental
 

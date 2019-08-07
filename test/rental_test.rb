@@ -1,5 +1,5 @@
 require 'time'
-require_relative 'spec_helper'
+require_relative 'test_helper'
 
 xdescribe 'GreenBox::Rental' do
   let (:date_range) do
