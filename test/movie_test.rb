@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative 'test_helper'
 
 xdescribe 'GreenBox::Movie' do
   let (:movie) { GreenBox::Movie.new(3, 'Green Lantern',
